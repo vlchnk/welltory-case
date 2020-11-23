@@ -28,7 +28,7 @@ for el in events:
     except:
         err = '---\n'
         err += f'File: **{el}**\n\n'
-        print(err + f'Error: empty dict\n')
+        print(err + f'**Error**: empty dict\n')
         y = False
 
     if type(event) == dict and y:
@@ -48,12 +48,12 @@ for el in events:
         else:
             err = '---\n'
             err += f'File: **{el}**, schema: **{event["event"]}**\n\n'
-            print(err + f'Error: "{event["event"]}" don\'t find schema in folder "schema"\n\n')
+            print(err + f'**Error**: "{event["event"]}" don\'t find schema in folder "schema"\n\n')
             schema = False
     else:
         err = '---\n'
         err += f'File: **{el}**\n\n'
-        print(err + f'Error: different file type\n\n')
+        print(err + f'**Error**: different file type\n\n')
         schema = False
 
     if schema:
@@ -62,7 +62,7 @@ for el in events:
         err = '---\n'
         err += f'File: **{el}**, schema: **{event_name}**\n\n'
         for error in errors:
-            err += f'Path: {list(error.absolute_schema_path)}, Error: {error.message}\n\n'
+            err += f'**Path**: {list(error.absolute_schema_path)}, **Error**: {error.message}\n\n'
             print(err)
 
 sys.stdout = old_stdout
