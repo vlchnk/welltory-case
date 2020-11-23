@@ -10,6 +10,8 @@ log_file = open("README.MD","w")
 
 sys.stdout = log_file
 
+print('**Log file**')
+
 events = []
 for (dirpath, dirnames, filenames) in walk('./event'):
     events.extend(filenames)

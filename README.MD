@@ -1,3 +1,4 @@
+**Log file**
 ---
 File: **1eba2aa1-2acf-460d-91e6-55a8c3e3b7a3.json**, schema: **label_selected**
 
