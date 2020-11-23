@@ -24,7 +24,7 @@ for el in events:
     try:
         y = event['event']
     except:
-        err = f'File: **{el}**\n'
+        err = f'File: **{el}**\n\n'
         print(err + f'Error: empty dict\n')
         y = False
 
@@ -43,20 +43,20 @@ for el in events:
             with open('./schema/workout_created.schema') as json_file:
                 schema = json.load(json_file)
         else:
-            err = f'File: **{el}**, schema: **{event["event"]}**\n'
-            print(err + f'Error: "{event["event"]}" don\'t find schema in folder "schema"\n')
+            err = f'File: **{el}**, schema: **{event["event"]}**\n\n'
+            print(err + f'Error: "{event["event"]}" don\'t find schema in folder "schema"\n\n')
             schema = False
     else:
-        err = f'File: **{el}**\n'
-        print(err + f'Error: different file type\n')
+        err = f'File: **{el}**\n\n'
+        print(err + f'Error: different file type\n\n')
         schema = False
 
     if schema:
         v = Draft7Validator(schema)
         errors = sorted(v.iter_errors(event['data']), key=lambda e: e.path)
-        err = f'File: **{el}**, schema: **{event_name}**\n'
+        err = f'File: **{el}**, schema: **{event_name}**\n\n'
         for error in errors:
-            err += f'Path: {list(error.absolute_schema_path)}, Error: {error.message}\n'
+            err += f'Path: {list(error.absolute_schema_path)}, Error: {error.message}\n\n'
             print(err)
 
 sys.stdout = old_stdout
