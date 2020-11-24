@@ -60,7 +60,7 @@ for el in events:
         err = '---\n'
         err += f'File: **{el}**, schema: **{event_name}**\n\n'
         for error in errors:
-            err += f'**Path**: {list(error.absolute_schema_path + error.path)}, **Error**: {error.message}\n\n'
+            err += f'**Type**: {list(error.relative_schema_path)},**Path**: {list(error.path)}, **Error**: {error.message}\n\n'
             print(err)
 
 sys.stdout = old_stdout
